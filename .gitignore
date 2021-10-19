@@ -1,3 +1,5 @@
 .idea
 !**/src/main/**/target/
 !**/src/test/**/target/
+!./frondend/dist
+./frondend/node_modules

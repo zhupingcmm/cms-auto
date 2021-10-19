@@ -1,0 +1,20 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: cms-auto-service
+  datasource:
+    url: jdbc:postgresql://16.155.194.134:5432/lr_report
+    username: postgres
+    password: Admin_1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+#    hibernate:
+#      ddl-auto: update
+    show-sql: true
+logging:
+  level:
+    root: info
+  file:
+    name: cms-auto-service.log
+
