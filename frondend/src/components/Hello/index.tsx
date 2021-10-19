@@ -3,6 +3,6 @@ interface HelloProps {
   name: string;
 }
 
-export const Hello = ({ className, name }: HelloProps) => {
-  return <div className={className}>Hello {name}</div>;
-};
+export const Hello = ({ className, name }: HelloProps) => (
+  <div className={className}>Hello {name}</div>
+);

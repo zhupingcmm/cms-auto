@@ -2,7 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 const ProgressBarPlugin = require('webpackbar');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: { index: path.resolve(__dirname, '../../src/index.tsx') },
@@ -21,7 +22,35 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'ts-loader',
-      }
+        options: {
+          transpileOnly: true
+        }
+      },
+      {
+        test: /\.(scss|sass|css|less)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+          }
+        ]
+      },
+      // {
+      //   test: /\.(ts|tsx|json)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   options: {
+      //     cache: true,
+      //     quiet: true,
+      //     eslintPath: 'eslint',
+      //     include: [
+      //       path.resolve(__dirname, '../../')
+      //     ]
+      //   }
+      // }
     ],
   },
   plugins: [
@@ -33,11 +62,14 @@ module.exports = {
     }),
     new CleanTerminalPlugin(), 
     new ProgressBarPlugin(),
-    new ForkTsCheckerWebpackPlugin({
-      eslint: {
-        files: './src/**/*.{ts,tsx,js,jsx}',
-      },
-    }),
+    // new ForkTsCheckerWebpackPlugin({
+    //   eslint: {
+    //     files: './src/**/*.{ts,tsx,js,jsx}',
+    //   },
+    // }),
+    new MiniCssExtractPlugin({
+      filename: '[name]-[contenthash:8].css',
+    })
   ],
   optimization: {
     usedExports: false,

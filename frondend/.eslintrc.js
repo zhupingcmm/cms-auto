@@ -1,7 +1,7 @@
 module.exports = {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "extends": [
+    root: true,
+    parser: "@typescript-eslint/parser",
+    extends: [
       "airbnb",
       "airbnb-typescript",
       "airbnb/hooks",
@@ -10,10 +10,15 @@ module.exports = {
       "plugin:react/jsx-runtime",
       "prettier",
     ],
-    "parserOptions": {
-      "project": "./tsconfig.json",
+    parserOptions: {
+      project: "./tsconfig.json",
     },
-    "rules": {
-      // 在这里添加需要覆盖的规则
-    }
+    
+    rules: {
+        indent: ['error', 2],
+        semi: ['error', 'always'],
+        "import/prefer-default-export": 0,
+        'react/prop-types': 0,
+        "react/require-default-props": [{ forbidDefaultForRequired: false }]
+    },
   };
