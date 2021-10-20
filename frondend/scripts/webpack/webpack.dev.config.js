@@ -19,7 +19,7 @@ if (tsLoader) {
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'cheap-module-source-map',
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
     port: 8090,
     open: true,

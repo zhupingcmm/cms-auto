@@ -4,6 +4,7 @@ const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 const ProgressBarPlugin = require('webpackbar');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
   entry: { index: path.resolve(__dirname, '../../src/index.tsx') },
@@ -32,6 +33,14 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
+            // options: {
+            //   modules: {
+            //     localIdentName: "[path][name]__[local]--[hash:base64:5]",
+            //     localIdentContext: path.resolve(__dirname, "../../src"),
+            //     localIdentHashSalt: "hash",
+            //     namedExport: true,
+            //   }
+            // }
           },
           {
             loader: 'sass-loader',
@@ -61,12 +70,12 @@ module.exports = {
       filename:'index.html'
     }),
     new CleanTerminalPlugin(), 
-    new ProgressBarPlugin(),
-    // new ForkTsCheckerWebpackPlugin({
-    //   eslint: {
-    //     files: './src/**/*.{ts,tsx,js,jsx}',
-    //   },
-    // }),
+    new ProgressBarPlugin({
+      eslint: {
+        files: '../../src/**/*.{ts,tsx,js,jsx}' // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
+      }
+    }),
+    new ForkTsCheckerWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name]-[contenthash:8].css',
     })
