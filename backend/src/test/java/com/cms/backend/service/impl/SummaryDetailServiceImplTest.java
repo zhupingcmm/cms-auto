@@ -1,5 +1,6 @@
 package com.cms.backend.service.impl;
 
+import com.cms.backend.dto.Response;
 import com.cms.backend.model.SummaryDetail;
 import com.cms.backend.service.ISummaryDetailService;
 import org.junit.Test;
@@ -21,8 +22,8 @@ public class SummaryDetailServiceImplTest {
 
     @Test
     public void findByTestNameTest () {
-        List<SummaryDetail> summaryDetails = service.findByTestName("SH_BM_L15M_09");
-        System.out.println(summaryDetails.toString());
+        Response response = (Response) service.getTestNames();
+        System.out.println(response);
     }
 
 }

@@ -21,7 +21,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-cheap-module-source-map',
   devServer: {
-    port: 8090,
+    port: 3001,
     open: true,
     client: {
       overlay: {
