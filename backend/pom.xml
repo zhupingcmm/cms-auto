@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cms</groupId>
-    <artifactId>service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>cms-auto</artifactId>
+    <version>0.0.1</version>
     <name>service</name>
     <description>service</description>
     <properties>
@@ -68,6 +68,13 @@
                     </excludes>
                 </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>docker-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <imageName>${}/</imageName>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

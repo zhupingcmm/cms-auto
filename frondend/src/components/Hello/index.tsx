@@ -8,13 +8,12 @@ interface HelloProps {
   name: string;
 }
 
-export const Hello = ({ className, name }: HelloProps) => {
+export const Hello = (props: HelloProps) => {
+  const { className } = props;
   const client = useHttp();
   const { data, run } = useAsync();
   useEffect(() => {
-    (async () => {
-      run(client('testnames'));
-    })();
+    // run(client('testnames'));
   }, []);
   console.log('data::', data);
   return (

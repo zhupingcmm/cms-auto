@@ -1,5 +1,8 @@
 .idea
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+backend/cms-auto-service.log
 frondend/dist/
 frondend/node_modules/
+frondend/server/node_modules
